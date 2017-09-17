@@ -13,34 +13,17 @@ app.use(bodyParser.json())
 
 
 //setup routes
-require('./router')(app)
+//require('./router')(app)
 
 // config data models
-require('./models')(app, mongoose)
+//require('./models')(app, mongoose)
 
-app.get('/api/product', (req,res)=> {
-	res.send(200, {products:[]})
-})
 
-app.get('/api/product/:productId', (req,res) => {
-
-})
-
-app.post('/api/product', (req,res) =>{
-	console.log(req.body)
-	res.status(200).send({message: 'El producto se ha recibido'})
-})
-
-app.put('/api/product/:productId', (req,res)=>{
-
-})
-
-app.delete('/api/product/:productId', (req,res)=>{
-
-})
-
-mongoose.connect('mongodb://localhost/3000',(err,res) => {
-	if(err) throw err
+//mall refers to the name of the BD
+mongoose.connect('mongodb://localhost/mall',(err,res) => {
+	if(err) {
+    console.log(`Error connecting database ${err}`)
+    }
 	console.log('Connection to the established database ')
 
     app.listen(port, ()=>{
