@@ -1,10 +1,11 @@
 'use strict'
 
-exports = module.exports = function (app, mongoose) {
-  var loginSchema = new mongoose.Schema({
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+
+const loginSchema = Schema({
     userName: String,
     password: String
-  })
-    loginSchema.set('autoIndex', (app.get('env') === 'development'))
-    app.db.model('login', loginSchema)
-}
+})
+
+mongoose.model('Login', loginSchema)

@@ -13,10 +13,10 @@ app.use(bodyParser.json())
 
 
 //setup routes
-//require('./router')(app)
+require('./router')(app)
 
 // config data models
-//require('./models')(app, mongoose)
+require('./models')(app, mongoose)
 
 
 //mall refers to the name of the BD
