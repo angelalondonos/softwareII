@@ -1,0 +1,19 @@
+{
+  "name": "softwareii",
+  "version": "1.0.0",
+  "description": "Final project SoftwareII",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Karen Rojas, Angela Londono, Julian Guerrero, Hector Robledo, Elkin Calderon",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
