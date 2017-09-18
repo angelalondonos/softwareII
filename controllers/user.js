@@ -1,5 +1,6 @@
 'use strict'
 
+const mongoose = require('mongoose')
 const User = require('../models/user')
 const service = require('../services')
 
@@ -9,7 +10,7 @@ const service = require('../services')
  * @param {*} res 
  */
 function signUp(req, res) {
-    const user = new user({
+    const user = new User({
         email: req.body.email,
         displayName: req.body.displayName,
         password: req.body.password
@@ -31,17 +32,15 @@ function signUp(req, res) {
 function signIn(req, res) {
     User.find({ email: req.body.email }, (err, user) => {
         if (err) return res.status(500).send({ message: err })
-        if (!user) return res.status(404).send({ message: 'No existe el usuario' })
+        if (!user) return res.status(404).send({ message: 'No user exists' })
 
         req.user = user
         res.status(200).send({
-            message: 'Te has logueado correctamente',
+            message: 'You have successfully logged in',
             token: service.createToken(user)
         })
     })
 }
-
-
 
 module.exports = {
     signUp,

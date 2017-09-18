@@ -6,12 +6,12 @@ const bcrypt = require('bcrypt-nodejs') //encrypt password
 const crypto = require('crypto') //encrypt info that the server knows nothing
 
 const userSchema = Schema({
-    email: { type: String, unique: true, lowercase: true },
-    dispuserName: String,
-    avatar: String,
-    password: { type: String, select: false },
-    signupDate: { type: Date, default: Date.now() },
-    lastLogin: Date
+  email: { type: String, unique: true, lowercase: true },
+  displayName: String,
+  avatar: String,
+  password: { type: String, select: false },
+  signupDate: { type: Date, default: Date.now() },
+  lastLogin: Date
 })
 
 /**
@@ -19,7 +19,7 @@ const userSchema = Schema({
  */
 userSchema.pre('save', (next) => {
   let user = this
-  
+
   bcrypt.genSalt(10, (err, salt) => {
     if (err) return next(err)
 
@@ -45,4 +45,4 @@ userSchema.methods.gravatar = function () {
 }
 
 
-module.exports =mongoose.model('user', userSchema)
+module.exports = mongoose.model('user', userSchema)

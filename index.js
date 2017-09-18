@@ -1,14 +1,14 @@
 'use strict'
 
-const express= require('express')
-const bodyParser= require('body-parser')
-const mongoose= require('mongoose')
+const express = require('express')
+const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 
-const app= express()
-const port = process.env.PORT || 3001
+const app = express()
+const port = process.env.PORT || 3000
+const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/mall'
 const hbs = require('express-handlebars')
 const api = require('./routes')
-
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -23,17 +23,21 @@ app.get('/login', (req, res) => {
   res.render('login')
 })
 
-module.exports = app
-
 //mall refers to the name of the BD
-mongoose.connect('mongodb://localhost/mall',(err,res) => {
-	if(err) {
+mongoose.connect(db, (err, res) => {
+  if (err) {
     console.log(`Error connecting database ${err}`)
-    }
-	console.log('Connection to the established database ')
+  }
+  console.log('Connection to the established database ')
 
-    app.listen(port, ()=>{
-    console.log(`API REST running http://localhosto:${port}`)
+  app.listen(port, () => {
+    console.log(`API REST running http://localhost:${port}`)
+  })
+
 })
 
-})
+
+module.exports = {
+  app,
+  SECRET_TOKEN: 'miclavedetokens'
+}
