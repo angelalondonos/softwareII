@@ -4,7 +4,7 @@
  */
 const jwt = require('jwt-simple') //encode and decode module for node.js  
 const moment = require('moment') //
-const index = require('../index')
+const index = require('../config')
 
 /**
  * Creation token

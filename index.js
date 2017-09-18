@@ -10,6 +10,8 @@ const db = process.env.MONGODB_URI || 'mongodb://localhost:27017/mall'
 const hbs = require('express-handlebars')
 const api = require('./routes')
 
+module.exports =  app
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.engine('.hbs', hbs({
@@ -37,7 +39,4 @@ mongoose.connect(db, (err, res) => {
 })
 
 
-module.exports = {
-  app,
-  SECRET_TOKEN: 'miclavedetokens'
-}
+

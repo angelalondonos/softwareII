@@ -8,7 +8,7 @@ const app = express.Router()
 app.post('/signup', userCtrl.signUp)
 app.post('/signin', userCtrl.signIn)
 app.get('/private', auth, (req, res) => {
-  res.status(200).send({ message: 'You have access' })
+res.status(200).send({ message: 'You have access' })
 }) // check access
 
 
