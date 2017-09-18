@@ -1,7 +1,7 @@
 <form id="login" method="post">
-  <input type="email" name="email" value="" placeholder="Tu Email">
+  <input type="email" name="email" value="" placeholder="Email">
   <br><br>
-  <input type="password" name="password" value="" placeholder="Tu Contraseña">
+  <input type="password" name="password" value="" placeholder="Password">
   <br><br>
   <input type="submit" value="Login">
 </form>
@@ -12,7 +12,7 @@
 
   formLogin.addEventListener('submit', event => {
     event.preventDefault()
-    fetch('/api/signin', {
+    fetch('/app/signin', {
       method: 'POST',
       body: formData
     })

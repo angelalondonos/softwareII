@@ -1,14 +1,22 @@
 'use strict'
+/**
+ * JSON JWT Web Token in REST API
+ */
 
-const jwt = require('jwt-simple')
-const moment = require('moment')
+
+const jwt = require('jwt-simple') //encode and decode module for node.js  
+const moment = require('moment') //
 const index = require('../index')
 
+/**
+ * Creation token
+ * @param {*} user 
+ */
 function createToken (user) {
   const payload = {
-    sub: user._id,
-    iat: moment().unix(),
-    exp: moment().add(14, 'days').unix()
+    sub: user._id, //id usuario
+    iat: moment().unix(), //Date create token  
+    exp: moment().add(14, 'days').unix() //expiration of token 
   }
 
   return jwt.encode(payload, index.SECRET_TOKEN)

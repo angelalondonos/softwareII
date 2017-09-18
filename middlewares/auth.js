@@ -1,5 +1,7 @@
 'use strict'
-
+/**
+ * User Registration and Authentication
+ */
 const services = require('../services')
 
 function isAuth (req, res, next) {
